@@ -10,6 +10,14 @@ const nextConfig = {
     },
     images: {
         domains: ["localhost"],
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "img.wattpad.com",
+                port: "",
+                pathname: "/cover/**",
+            },
+        ],
     },
     reactStrictMode: false,
     eslint: {
