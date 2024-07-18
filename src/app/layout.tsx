@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-import { ThemeProvider } from "@mui/material";
+import { Inter } from "next/font/google";
 
 import ReduxProvider from "@/redux/provider/provider";
-import theme from "@/theme/theme";
 
 export const metadata: Metadata = {
     title: "FestFic Ranking",
     description: "A ranking of the best FestFic stories",
 };
+const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
     children,
@@ -18,13 +17,9 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body>
-                <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-                    <ThemeProvider theme={theme}>
-                        <ReduxProvider>{children}</ReduxProvider>
-                    </ThemeProvider>
-                </AppRouterCacheProvider>
+        <html lang="vi">
+            <body className={inter.className}>
+                <ReduxProvider>{children}</ReduxProvider>
             </body>
         </html>
     );
