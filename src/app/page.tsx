@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import RankItem from "@/components/page/main/rank_item";
 import useWattpadData from "@/hooks/use-get-wattpad-data";
 
@@ -30,7 +32,17 @@ export default function Home() {
             </div>
             {/* Footer */}
             <footer className="flex w-full items-center justify-center bg-gray-100 py-4">
-                <p className="text-gray-600">Made by ❤️ from crazyads69</p>
+                <p className="text-gray-600">
+                    Made by ❤️ from
+                    <Link legacyBehavior passHref href="https://www.wattpad.com/user/crazyads69">
+                        <a
+                            className="pl-1 text-blue-500 hover:text-blue-700 hover:underline"
+                            target="_blank"
+                        >
+                            crazyads69
+                        </a>
+                    </Link>
+                </p>
             </footer>
         </div>
     );
