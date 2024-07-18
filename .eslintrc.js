@@ -141,6 +141,7 @@ module.exports = {
                 next: ["const", "let", "var"],
             },
         ],
+        "no-shadow": "off",
     },
     settings: {
         "import/resolver": {
