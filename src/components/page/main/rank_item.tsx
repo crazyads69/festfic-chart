@@ -108,6 +108,12 @@ function WattpadStoriesList({ stories }: { stories: WattpadStory[] }) {
                                     <Typography color="text.secondary" variant="body2">
                                         Số lượt vote: {story.votes}
                                     </Typography>
+                                    <Typography color="text.secondary" variant="body2">
+                                        Số lượt comment: {story.comments}
+                                    </Typography>
+                                    <Typography color="text.secondary" variant="body2">
+                                        Số lượt đọc: {story.reads}
+                                    </Typography>
                                 </div>
                             }
                         />
