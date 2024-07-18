@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from "react";
 
@@ -29,8 +30,10 @@ const useWattpadData = () => {
                 const allStoriesData = await allStoriesResponse.json();
 
                 // Map the data to the format we want
+                let index = 0;
                 const newStories: WattpadStory[] = allStoriesData.stories.map((story: any) => ({
-                    id: story.id,
+                    // use index as id
+                    id: index++,
                     title: story.title,
                     description: story.description,
                     cover: story.cover,
@@ -40,8 +43,22 @@ const useWattpadData = () => {
                     comments: story.commentCount,
                 }));
 
-                // Sort the stories by votes
-                newStories.sort((a, b) => b.votes - a.votes);
+                // Stable Sort Implementation
+                newStories.sort((a, b) => {
+                    if (a.votes === b.votes) {
+                        if (a.comments === b.comments) {
+                            if (a.reads === b.reads) {
+                                return b.id - a.id;
+                            }
+
+                            return b.reads - a.reads;
+                        }
+
+                        return b.comments - a.comments;
+                    }
+
+                    return b.votes - a.votes;
+                });
                 setData(newStories);
             } catch (error) {
                 if (error instanceof Error) {
