@@ -1,0 +1,27 @@
+name: Refresh Data
+on:
+  schedule:
+    - cron: "*/15 * * * *" # Runs every 15 minutes.
+permissions:
+  contents: write
+jobs:
+  refresh-feed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Fetch API Data 📦
+        uses: JamesIves/fetch-api-data-action@v2
+        with:
+          endpoint: https://www.wattpad.com/v4/users/nwjnsfcvn/stories/published?limit=100&fields=stories(title%2ClastPublishedPart%2CvoteCount%2CreadCount%2CcommentCount%2Ccover%2Ctags%2Curl%2Cid%2Cdescription%2Ccategories%2Ccompleted%2Cmature%2Crating%2Crankings%2CtagRankings%2CnumParts%2CfirstPartId%2Cparts%2CisPaywalled%2CpaidModel)%2Ctotal%2CnextUrl%2CnumPublished%2CnumDrafts
+          configuration: '{ "method": "GET" }'
+
+      - name: Build and Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: main # Pushes the updates to the main branch.
+          folder: fetch-api-data-action # The location of the data.json file saved by the Fetch API Data action.
+          target-folder: data # Saves the data into the 'data' directory on the main branch.
