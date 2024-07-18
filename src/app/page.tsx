@@ -34,9 +34,11 @@ export default function Home() {
                     <WattpadStoriesList stories={data} />
                 )}
             </div>
-            <footer className="flex w-full items-center justify-center bg-gray-100 py-4">
-                <p className="text-gray-600">Made by ❤️ from crazyads69</p>
-            </footer>
+            {!isLoading && data.length > 0 && (
+                <footer className="flex w-full items-center justify-center bg-gray-100 py-4">
+                    <p className="text-gray-600">Made by ❤️ from crazyads69</p>
+                </footer>
+            )}
         </div>
     );
 }
