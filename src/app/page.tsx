@@ -13,7 +13,7 @@ export default function Home() {
                     FestFic Ranking
                 </h1>
             </div>
-            <div className="flex h-full w-full flex-col items-center justify-center px-4 py-2 lg:px-32">
+            <div className="flex h-full w-full flex-col items-center justify-center px-2 py-2 sm:px-4 lg:px-32">
                 {isLoading || data.length === 0 ? (
                     <div className="flex min-h-screen w-full flex-row items-center justify-center">
                         <div
