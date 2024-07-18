@@ -36,8 +36,9 @@ const Item = styled(ListItem)(({ theme }) => ({
 }));
 
 const CoverImage = styled(Image)(({ theme }) => ({
-    width: 100,
-    height: 100,
+    width: "15%",
+    height: "15%",
+    display: "block",
     marginRight: theme.spacing(2),
     borderRadius: 8,
 }));
@@ -57,7 +58,7 @@ const RankingContainer = styled(Box)(({ theme }) => ({
 
 function WattpadStoriesList({ stories }: { stories: WattpadStory[] }) {
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -105,7 +106,7 @@ function WattpadStoriesList({ stories }: { stories: WattpadStory[] }) {
                                             : "No description"}
                                     </Typography>
                                     <Typography color="text.secondary" variant="body2">
-                                        Total Votes: {story.votes}
+                                        Số lượt vote: {story.votes}
                                     </Typography>
                                 </div>
                             }
