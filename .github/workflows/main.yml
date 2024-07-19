@@ -1,9 +1,13 @@
 name: Refresh Data
+
 on:
   schedule:
-    - cron: "*/7 * * * *" # Runs every 7 minutes.
+    - cron: "55 22 * * *"  # Runs at 22:55 every day
+    - cron: "*/7 * * * *"  # Runs every 7 minutes
+
 permissions:
   contents: write
+
 jobs:
   refresh-feed:
     runs-on: ubuntu-latest
