@@ -1,7 +1,7 @@
 name: Refresh Data
 on:
   schedule:
-    - cron: "*/10 * * * *" # Runs every 10 minutes.
+    - cron: "*/7 * * * *" # Runs every 7 minutes.
 permissions:
   contents: write
 jobs:
