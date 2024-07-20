@@ -24,41 +24,14 @@ const useWattpadData = () => {
             setError(null);
 
             try {
-                const allStoriesResponse = await fetch(
-                    "https://raw.githubusercontent.com/crazyads69/festfic-chart/main/data/data.json",
-                );
-                const allStoriesData = await allStoriesResponse.json();
+                const api = process.env.NEXT_PUBLIC_API_URL;
+                const response = await fetch(`${api}/stories`);
 
-                // Map the data to the format we want
-                let index = 0;
-                const newStories: WattpadStory[] = allStoriesData.stories.map((story: any) => ({
-                    // use index as id
-                    id: index++,
-                    title: story.title,
-                    description: story.description,
-                    cover: story.cover,
-                    url: story.url,
-                    reads: story.readCount,
-                    votes: story.voteCount,
-                    comments: story.commentCount,
-                }));
+                if (!response.ok) {
+                    throw new Error("Failed to fetch data");
+                }
+                const newStories: WattpadStory[] = await response.json();
 
-                // Stable Sort Implementation
-                newStories.sort((a, b) => {
-                    if (a.votes === b.votes) {
-                        if (a.comments === b.comments) {
-                            if (a.reads === b.reads) {
-                                return b.id - a.id;
-                            }
-
-                            return b.reads - a.reads;
-                        }
-
-                        return b.comments - a.comments;
-                    }
-
-                    return b.votes - a.votes;
-                });
                 setData(newStories);
             } catch (error) {
                 if (error instanceof Error) {
