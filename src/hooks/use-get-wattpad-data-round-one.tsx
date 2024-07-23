@@ -11,9 +11,11 @@ export interface WattpadStory {
     reads: number;
     votes: number;
     comments: number;
+    author: string;
+    modifyDate: string;
 }
 
-const useWattpadData = () => {
+const useWattpadDataRoundOne = () => {
     const [data, setData] = useState<WattpadStory[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<Error | null>(null);
@@ -48,4 +50,4 @@ const useWattpadData = () => {
     return { data, isLoading, error };
 };
 
-export default useWattpadData;
+export default useWattpadDataRoundOne;

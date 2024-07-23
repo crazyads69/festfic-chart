@@ -3,11 +3,11 @@ import Image from "next/image";
 
 import { WattpadStory } from "@/hooks/use-get-wattpad-data-round-one";
 
-export interface RankItemProps {
+export interface RankItemTwoProps {
     stories: WattpadStory[];
 }
 
-export default function RankItem({ stories }: RankItemProps) {
+export default function RankItemTwo({ stories }: RankItemTwoProps) {
     return (
         <div className="flex min-h-screen w-full flex-col items-center justify-center">
             {stories.map((story, index) => (
@@ -24,10 +24,12 @@ export default function RankItem({ stories }: RankItemProps) {
                     />
                     {/* Info */}
                     <div className="ml-2 flex h-full w-full flex-col items-start justify-start self-start pr-8 text-black">
-                        <h1 className="mb-2 text-xs font-bold lg:text-xl">{story.title}</h1>
+                        <h1 className="mb-2 text-xs font-bold lg:text-xl">
+                            {`${story.title} - ${story.author}`}
+                        </h1>
                         <p className="text-xs font-normal lg:text-lg">
-                            {story.description.length > 100
-                                ? `${story.description.slice(0, 100)}...`
+                            {story.description.length > 50
+                                ? `${story.description.slice(0, 50)}...`
                                 : story.description}
                         </p>
                         <div className="flex h-fit w-fit flex-col items-start justify-start align-bottom md:mt-2">
