@@ -37,9 +37,11 @@ export default function Header() {
 
     return (
         <div className="sticky z-[300] flex h-fit w-full flex-row items-center justify-between px-8 py-[1rem] shadow-lg lg:px-[4.81rem]">
-            <h1 className="cursor-pointer select-none font-sans text-[1rem] font-bold text-[#fe5009]">
-                FestFic Ranking
-            </h1>
+            <Link href="/">
+                <h1 className="cursor-pointer select-none font-sans text-[1rem] font-bold text-[#fe5009]">
+                    FestFic Ranking
+                </h1>
+            </Link>
             {/* Hamburger menu */}
             <div
                 ref={menuRef}
