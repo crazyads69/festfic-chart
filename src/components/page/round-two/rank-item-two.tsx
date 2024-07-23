@@ -48,7 +48,7 @@ export default function RankItemTwo({ stories }: RankItemTwoProps) {
                                 {story.comments}
                             </p>
                             <p className="text-xs font-normal lg:text-lg">
-                                <span className="font-xs font-bold lg:text-lg">Cập nhật: </span>
+                                <span className="font-xs font-bold lg:text-lg">Cập nhật vào: </span>
                                 {new Date(story.modifyDate).toLocaleString("en-GB", {
                                     day: "2-digit",
                                     month: "2-digit",

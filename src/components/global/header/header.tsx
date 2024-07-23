@@ -87,9 +87,6 @@ export default function Header() {
                             <Link
                                 className="w-full p-4 text-center text-xl transition-colors duration-200 ease-in-out hover:bg-gray-100"
                                 href="/round-two"
-                                onClick={() => {
-                                    localStorage.setItem("round", "2");
-                                }}
                             >
                                 Vòng 2
                             </Link>
@@ -106,10 +103,6 @@ export default function Header() {
                                 <Link
                                     className="transition-colors duration-200 ease-in-out"
                                     href="/"
-                                    onClick={() => {
-                                        localStorage.setItem("round", "1");
-                                        console.log("Vòng 1");
-                                    }}
                                 >
                                     Vòng 1
                                 </Link>
@@ -118,10 +111,6 @@ export default function Header() {
                                 <Link
                                     className="transition-colors duration-200 ease-in-out"
                                     href="/round-two"
-                                    onClick={() => {
-                                        localStorage.setItem("round", "2");
-                                        console.log("Vòng 2");
-                                    }}
                                 >
                                     Vòng 2
                                 </Link>
