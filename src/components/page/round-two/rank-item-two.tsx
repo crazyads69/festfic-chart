@@ -17,38 +17,44 @@ export default function RankItemTwo({ stories }: RankItemTwoProps) {
                 >
                     <Image
                         alt={story.description}
-                        className="h-35 w-40 rounded-md"
+                        className="h-35 w-40 select-none rounded-md"
                         height={100}
                         src={story.cover}
                         width={100}
                     />
                     {/* Info */}
                     <div className="ml-2 flex h-full w-full flex-col items-start justify-start self-start pr-8 text-black">
-                        <h1 className="mb-2 text-xs font-bold lg:text-xl">
+                        <h1 className="mb-2 select-none text-xs font-bold lg:text-xl">
                             {`${story.title} - ${story.author}`}
                         </h1>
-                        <p className="text-xs font-normal lg:text-lg">
+                        <p className="select-none text-xs font-normal lg:text-lg">
                             {story.description.length > 50
                                 ? `${story.description.slice(0, 50)}...`
                                 : story.description}
                         </p>
                         <div className="flex h-fit w-fit flex-col items-start justify-start align-bottom md:mt-2">
-                            <p className="mt-2 text-xs font-normal lg:text-lg">
-                                <span className="font-xs font-bold lg:text-lg">Số lượt đọc: </span>
+                            <p className="mt-2 select-none text-xs font-normal lg:text-lg">
+                                <span className="font-xs select-none font-bold lg:text-lg">
+                                    Số lượt đọc:{" "}
+                                </span>
                                 {story.reads}
                             </p>
-                            <p className="text-xs font-normal lg:text-lg">
-                                <span className="font-xs font-bold lg:text-lg">Số lượt vote: </span>
+                            <p className="select-none text-xs font-normal lg:text-lg">
+                                <span className="font-xs select-none font-bold lg:text-lg">
+                                    Số lượt vote:{" "}
+                                </span>
                                 {story.votes}
                             </p>
-                            <p className="text-xs font-normal lg:text-lg">
-                                <span className="font-xs font-bold lg:text-lg">
+                            <p className="select-none text-xs font-normal lg:text-lg">
+                                <span className="font-xs select-none font-bold lg:text-lg">
                                     Số lượt comment:{" "}
                                 </span>
                                 {story.comments}
                             </p>
-                            <p className="text-xs font-normal lg:text-lg">
-                                <span className="font-xs font-bold lg:text-lg">Cập nhật vào: </span>
+                            <p className="select-none text-xs font-normal lg:text-lg">
+                                <span className="font-xs select-none font-bold lg:text-lg">
+                                    Cập nhật vào:{" "}
+                                </span>
                                 {new Date(story.modifyDate).toLocaleString("en-GB", {
                                     day: "2-digit",
                                     month: "2-digit",
@@ -64,7 +70,7 @@ export default function RankItemTwo({ stories }: RankItemTwoProps) {
                     {/* Rank */}
                     <div className="absolute right-4 top-1/2 ml-2 flex h-fit w-fit -translate-y-1/2 flex-col items-center justify-center text-black">
                         <h1
-                            className="text-base font-bold lg:text-xl"
+                            className="select-none text-base font-bold lg:text-xl"
                             style={{
                                 color:
                                     index === 0
