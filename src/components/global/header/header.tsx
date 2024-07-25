@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { useDispatch } from "react-redux";
 
 import { CloseIcon, MenuIcon } from "@/components/asset/svg/svg";
 
@@ -9,7 +8,6 @@ export default function Header() {
     const handleMenu = () => setIsMenuOpen(!isMenuOpen);
     const menuRef = useRef<HTMLDivElement>(null);
     const [isMobile, setIsMobile] = useState<boolean>(false);
-    const dipsatch = useDispatch();
 
     useEffect(() => {
         setIsMobile(window.innerWidth <= 768);

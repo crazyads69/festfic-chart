@@ -9,7 +9,7 @@ export interface RankItemTwoProps {
 
 export default function RankItemTwo({ stories }: RankItemTwoProps) {
     return (
-        <div className="flex min-h-screen w-full flex-col items-center justify-center">
+        <div className="flex min-h-screen w-full flex-col items-center justify-start">
             {stories.map((story, index) => (
                 <div
                     key={story.id}
